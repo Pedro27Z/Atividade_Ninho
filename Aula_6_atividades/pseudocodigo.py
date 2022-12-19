@@ -110,6 +110,14 @@ else:
 
 # maior número 
 
+maior=0
+n = 1
+while n!=0:
+  n = int(input("Digite um número positivo maior que zero: "))
+  if n > maior:
+    maior = n
+print (f"O maior número é: {maior}")
+
 # multiplos de 10
 
 i=0
