@@ -1,0 +1,29 @@
+CREATE DATABASE "Escola" #Criar banco de dados
+
+CREATE TABLE "Alunos"(
+    "NroMatricula" int GENERATED ALWAYS AS IDENTITY,
+    "Nome" varchar(255) NOT NULL,
+    "cpf" char(11) NOT NULL UNIQUE,
+    "endereço" varchar(255),
+    "telefone" char,
+    "anoNascimento" timestamp,
+    PRIMARY KEY("NroMatricula")
+) #Criar tabela Alunos
+
+CREATE TABLE "Disciplina"(
+    "CodDisciplina" int GENERATED ALWAYS AS IDENTITY,
+    "Nome" varchar(255) NOT NULL,	
+    "codCurso" int, #(FK)
+    PRIMARY KEY("CodDisciplina")
+) #Criar tabela Disciplina
+
+CREATE TABLE "Matricula"(
+    "ID" int GENERATED ALWAYS AS IDENTITY,
+    "NroMatricula" int,	#(FK)
+    "CodDisciplina" int, #(FK)
+    "Semestre" int,
+    "Ano" timestamp,
+    "Nota" numeric,
+    "NroFaltas" int,
+    PRIMARY KEY("ID")
+)
