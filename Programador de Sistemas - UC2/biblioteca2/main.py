@@ -6,7 +6,7 @@ from Modelo.classLivros import Livros
 
 def criarTabelaAutor(conexao):
     conexao.manipularBanco('''
-        CREATE TABLE "Autor"(
+        CREATE TABLE "Autores"(
             "ID" int GENERATED ALWAYS AS IDENTITY,
             "Nome" varchar (255) NOT NULL,
             PRIMARY KEY ("ID")
