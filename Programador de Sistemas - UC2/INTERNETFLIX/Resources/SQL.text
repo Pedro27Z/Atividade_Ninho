@@ -1,0 +1,37 @@
+#Criação do banco de dados "Plataforma"
+CREATE DATABASE "Plataforma"
+#Criação da tabela "Plano"
+CREATE TABLE "Plano"(
+            "ID" int GENERATED ALWAYS AS IDENTITY,
+            "Nome" varchar (255) NOT NULL,
+            "Tipo" varchar (255) NOT NULL,
+            "Valor" numeric,
+            PRIMARY KEY ("ID")
+        )
+
+#Criação da tabela "Cliente"
+CREATE TABLE "Cliente" (
+        "ID" int GENERATED ALWAYS AS IDENTITY,
+        "Nome" varchar (255) NOT NULL,
+        "CPF" char (11) NOT NULL UNIQUE,
+        PRIMARY KEY ("ID")
+
+#Criação da tabela "Assinatura"
+CREATE TABLE "Assinatura" (
+        "ID" int GENERATED ALWAYS AS IDENTITY,
+        "Cliente" int,
+        "Plano" int,
+        PRIMARY KEY ("ID"),
+
+        Constraint fk_cliente
+        Foreign Key ("Cliente")
+        References "Cliente" ("ID")
+        ON DELETE NO ACTION
+        ON UPDATE NO ACTION,
+
+        Constraint fk_plano
+        Foreign Key ("Plano")
+        References "Plano" ("ID")
+        ON DELETE NO ACTION
+        ON UPDATE NO ACTION
+        )
